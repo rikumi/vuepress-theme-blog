@@ -9,7 +9,7 @@
             </div>
             
             <div class="post-item-summary">
-              {{ (page.frontmatter.summary || page.summary).replace(/<.*?(>|$)/g, '') }}
+              {{ (page.frontmatter.summary || page.summary || '').replace(/<.*?(>|$)/g, '') }}
               <!-- <Content :page-key="page.key" slot-key="intro"/>-->
             </div>
 
