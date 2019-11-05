@@ -1,24 +1,25 @@
 <template>
-  <div id="vuperess-theme-blog__global-layout">
-    <Header/>
+  <div id="global-layout">
+    <Sidebar/>
     <MobileHeader :isOpen="isMobileHeaderOpen" @toggle-sidebar="isMobileHeaderOpen = !isMobileHeaderOpen"/>
-    <div class="content-wrapper" @click="isMobileHeaderOpen = false">
-      <DefaultGlobalLayout/>
+    <div class="stream-container" @click="isMobileHeaderOpen = false">
+      <div class="post-list-container">
+        <DefaultGlobalLayout/>
+      </div>
     </div>
-    <Footer/>
   </div>
 </template>
 
 <script>
   import GlobalLayout from '@app/components/GlobalLayout.vue'
-  import Header from '@theme/components/Header.vue'
+  import Sidebar from '@theme/components/Sidebar.vue'
   import MobileHeader from '@theme/components/MobileHeader.vue'
   import Footer from '@theme/components/Footer.vue'
 
   export default {
     components: {
       DefaultGlobalLayout: GlobalLayout,
-      Header,
+      Sidebar,
       MobileHeader,
       Footer
     },
@@ -37,15 +38,10 @@
   }
 </script>
 
-<style lang="stylus">
-  .content-wrapper
-    padding 160px 15px 80px 15px
-    min-height calc(100vh - 80px - 60px - 160px)
-    max-width 740px
-    margin 0 auto
+<style>
+@import "https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css";
+</style>
 
-  @media (max-width: $MQMobile)
-    .content-wrapper
-      padding 100px 15px 20px 15px
-      min-height calc(100vh - 20px - 60px - 100px)
+<style lang="stylus">
+@import "../styles/journal.styl"
 </style>

@@ -1,6 +1,5 @@
 <template>
   <router-link
-    class="nav-link"
     :to="normalizedlink"
     v-if="!isExternal(normalizedlink)"
     :exact="exact"
@@ -48,12 +47,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.nav-link
-  color #000
-
-.nav-link
-  &:hover, &.router-link-active
-    color $accentColor
-</style>

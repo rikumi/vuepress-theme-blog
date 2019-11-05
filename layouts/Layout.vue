@@ -1,7 +1,9 @@
 <template>
   <div>
     <BaseListLayout v-if="$pagination"/>
-    <Content v-else/>
+    <div class="post" v-else>
+      <Content/>
+    </div>
   </div>
 </template>
 
