@@ -14,7 +14,7 @@ module.exports = (themeConfig, ctx) => {
     directories: [
       {
         id: 'post',
-        dirname: '_posts',
+        dirname: 'posts',
         path: '/',
         // layout: 'IndexPost', defaults to `Layout.vue`
         itemLayout: 'Post',
@@ -25,16 +25,16 @@ module.exports = (themeConfig, ctx) => {
       },
     ],
     frontmatters: [
-      {
-        id: "tag",
-        keys: ['tag', 'tags'],
-        path: '/tag/',
-        // layout: 'Tag',  defaults to `FrontmatterKey.vue`
-        frontmatter: { title: 'Tag' },
-        pagination: {
-          lengthPerPage: 5
-        }
-      },
+      // {
+      //   id: "tag",
+      //   keys: ['tag', 'tags'],
+      //   path: '/tag/',
+      //   // layout: 'Tag',  defaults to `FrontmatterKey.vue`
+      //   frontmatter: { title: 'Tag' },
+      //   pagination: {
+      //     lengthPerPage: 5
+      //   }
+      // },
     ]
   }
 

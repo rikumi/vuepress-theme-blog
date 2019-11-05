@@ -1,31 +1,22 @@
 {
-  "name": "@vuepress/theme-blog",
-  "version": "1.3.2",
-  "description": "Default blog theme for VuePress",
+  "name": "vuepress-theme-journal",
+  "version": "1.0.0",
+  "description": "Journal theme ported from Hexo",
   "main": "index.js",
   "files": [
     "index.js",
     "styles",
     "layouts",
     "global-components",
-    "fonts",
     "components"
   ],
-  "scripts": {
-    "test": "npm run lint && jest",
-    "lint": "disable",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "example:dev": "vuepress dev example --temp example/.temp",
-    "example:build": "vuepress build example --temp example/.temp",
-    "prepublishOnly": "npm run example:build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
-  },
+  "scripts": {},
   "repository": {
-    "url": "ulivz/vuepress-theme-blog",
+    "url": "rikumi/vuepress-theme-journal",
     "type": "git"
   },
-  "author": "ulivz<chl814@foxmail.com>",
-  "license": "MIT",
+  "author": "rikumi",
+  "license": "ISC",
   "dependencies": {
     "@vuepress/plugin-blog": "^1.5.1",
     "@vuepress/plugin-medium-zoom": "1.0.0",
@@ -35,14 +26,9 @@
     "node-sass": "^4.13.0",
     "remove-markdown": "^0.3.0",
     "sass-loader": "^8.0.0",
-    "vue-feather-icons": "^4.21.0"
+    "twemoji": "^12.1.3"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.0.1",
-    "eslint-config-sherry": "0.0.1",
     "vuepress": "^1.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   }
 }

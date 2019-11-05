@@ -1,4 +1,4 @@
-$color-accent = #9f563a
+$color-accent = $accentColor
 $back-container-background = #fcfcfc
 $front-container-background = white
 $default-font-list = "Lora", "source-han-serif-tc", serif
@@ -27,7 +27,7 @@ if lightness($color-accent) < 10%
   $dark-accent = $color-accent
   $deep-dark-accent = $color-accent
   $color-text = $deep-dark-accent
-$single-column-max-width = 1020px
+$single-column-max-width = 800px
 $single-column-drawer-width = 260px
 $single-column-nav-title-size = 28px
 $single-column-nav-subtitle-size = 20px
@@ -43,6 +43,8 @@ $h1 = 30px
 $h-diff = 3px
 ::-webkit-scrollbar
   display: none
+::selection
+  background: rgba($color-accent, 0.07)
 body
   background: $back-container-background
   padding: 0
@@ -54,7 +56,7 @@ body
   color: $color-text
 *
   color: $deep-dark-accent
-  line-height: 1.5em
+  line-height: 1.75em
   word-wrap: break-word
 h1
   font-size: $h1
@@ -93,6 +95,8 @@ pre
     font-family: $mono-font-list !important
   code
     padding: 0
+    font-size: 14px
+    line-height: 1.5em
 blockquote
   padding: 10px 20px
   border-left: 3px solid rgba($color-accent, 0.7)
@@ -102,6 +106,8 @@ blockquote
     margin-bottom: 0
   *
     color: $dark-accent
+ul
+  padding: 0
 a
   color: $color-accent
   &:hover
@@ -145,7 +151,6 @@ a
     display: block !important
     padding: 0
     *
-      font-family: $sans-preferred-font-list
       transition: opacity 0.5s ease-in-out
     button
       padding: 0
@@ -154,7 +159,7 @@ a
       justify-content: flex-start
       max-width: unset !important
     .navbar-brand
-      opacity: 0
+      font-family: $sans-preferred-font-list
       text-align: left
       padding-left: 24px !important
     .nav-dropdown-toggle
@@ -524,6 +529,7 @@ a
       position: relative
       padding-top: 140px
       @media screen and (max-width: $single-column-max-width)
+        margin-top: 0
         padding-top: 120px
       *
         color: white
@@ -550,6 +556,8 @@ a
           .material-icons
             vertical-align: middle
             margin-bottom: 3px
+          .post-meta-tag + .post-meta-tag::before
+            content: ', '
           @media screen and (max-width: $single-column-max-width)
             &,
             *
@@ -571,6 +579,8 @@ a
           .material-icons
             vertical-align: middle
             margin-bottom: 3px
+          .post-meta-tag + .post-meta-tag::before
+            content: ', '
           @media screen and (max-width: $single-column-max-width)
             &,
             *
@@ -583,10 +593,11 @@ a
         padding: 20px 20px 35px 20px
       .post-body
         font-size: $post-body-size
+        text-align: justify
         line-height: 1.5em
         *
           word-wrap: break-word
-        img
+        img, iframe
           max-width: 100%
           border-radius: 5px
           overflow: hidden
@@ -637,7 +648,7 @@ a
     @media screen and (max-width: $single-column-max-width)
       display: flex !important
       flex-direction: row
-      justify-content: space-between
+      justify-content: center
       &:not(.index-page)
         margin-top: 15px
       .pagination-indicator
@@ -682,3 +693,7 @@ a
       font-size: $single-column-nav-footer-size
       font-family: $sans-preferred-font-list
       padding: 40px 20px 40px 20px
+.emoji
+  width: 1em;
+  height: 1em;
+  margin-bottom: 0.2em;

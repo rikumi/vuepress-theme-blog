@@ -1,27 +1,30 @@
 <template>
-    <div class="ui-posts">
-      <div class="post-item-wrapper" v-for="page in pages">
-        <NavLink :link="page.path">
-          <div class="post-item">
-            <div class="post-item-info-wrapper">
-              <div class="post-item-title">
-                {{ page.title }}
-              </div>
-              
-              <div class="post-item-summary">
-                {{ page.frontmatter.summary || page.summary }}
-                <!-- <Content :page-key="page.key" slot-key="intro"/>-->
-              </div>
+  <div class="post-list-container post-list-container-no-background">
+    <NavLink class="a-block" :link="page.path" v-for="page in pages">
+      <div class="post-item-wrapper">
+        <div class="post-item">
+          <div class="post-item-info-wrapper">
+            <div class="post-item-title">
+              {{ page.title }}
+            </div>
+            
+            <div class="post-item-summary">
+              {{ (page.frontmatter.summary || page.summary).replace(/<.*?(>|$)/g, '') }}
+              <!-- <Content :page-key="page.key" slot-key="intro"/>-->
+            </div>
 
-              <div class="post-item-meta" v-if="page.frontmatter.author">
-                <span>{{ resovlePostDate(page.frontmatter.date) }}</span>
-              </div>
+            <div class="post-item-meta">
+              <span>{{ page.frontmatter.date.toString().match(/\d{4}-\d{2}-\d{2}/)[0] }}</span>
             </div>
           </div>
-        </NavLink>
+          <div class="post-item-image-wrapper" v-if="page.frontmatter.featured_image">
+            <div class="post-item-image" :style="{ backgroundImage: 'url(' + page.frontmatter.featured_image + ')' }"></div>
+          </div>
+        </div>
       </div>
-      <component v-if="$pagination.length > 1 && paginationComponent" :is="paginationComponent"></component>
-    </div>
+    </NavLink>
+    <component v-if="$pagination.length > 1 && paginationComponent" :is="paginationComponent"></component>
+  </div>
 </template>
 
 <script>
@@ -62,15 +65,8 @@
         }
 
         return Vue.component(n) || Pagination
-      },
-
-      resovlePostDate(date) {
-        return new Date(date.replace(/\-/g, "/").trim()).toDateString()
       }
     }
   }
 </script>
-
-<style src="prismjs/themes/prism-okaidia.css"></style>
-
 
