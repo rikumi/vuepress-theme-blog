@@ -50,10 +50,7 @@ module.exports = (themeConfig, ctx) => {
     ['@vuepress/search', {
       searchMaxSuggestions: 10
     }],
-    [
-      '@vuepress/blog',
-      blogPluginOptions,
-    ],
+    ['@vuepress/blog', blogPluginOptions]
   ]
 
   if (themeConfig.pwa) {
@@ -74,22 +71,15 @@ module.exports = (themeConfig, ctx) => {
     }
   }
 
-  /**
-   * Generate summary.
-   */
-  if (themeConfig.summary) {
-    config.extendPageData = function (pageCtx) {
-      const strippedContent = pageCtx._strippedContent
-      if (!strippedContent) {
-        return
-      }
-      pageCtx.summary = removeMd(
-        strippedContent
-          .trim()
-          .replace(/^#+\s+(.*)/, '')
-          .slice(0, themeConfig.summaryLength)
-      ) + ' ...'
+  config.extendPageData = function (pageCtx) {
+    const strippedContent = pageCtx._strippedContent
+    if (!strippedContent) {
+      return
     }
+    pageCtx.summary = removeMd(
+      strippedContent.trim()
+        .replace(/(^|\n)#+\s+.*/g, '')
+    ).slice(0, themeConfig.summaryLength) + ' ...'
   }
 
   return config
