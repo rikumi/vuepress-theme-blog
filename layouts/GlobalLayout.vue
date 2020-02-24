@@ -80,12 +80,6 @@
     },
 
     mounted() {
-      document.head.appendChild(Object.assign(document.createElement('script'), {
-        src: 'https://use.typekit.net/dwg1tuc.js',
-        async: true,
-        onload: () => Typekit.load()
-      }))
-
       twemoji.parse(document.body)
     }
   }
@@ -93,7 +87,7 @@
 
 <style>
 @import "https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css";
-@import "https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons";
+@import "https://fonts.googleapis.com/css?family=Lora|Noto+Serif+SC:400,600";
 </style>
 
 <style lang="stylus">

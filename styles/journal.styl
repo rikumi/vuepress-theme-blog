@@ -1,8 +1,33 @@
+@font-face
+  font-family: "Victor Mono";
+  src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Regular.woff2") format("woff2"),
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+@font-face
+  font-family: "Victor Mono";
+  src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Italic.woff2") format("woff2"),
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+@font-face
+  font-family: "Victor Mono";
+  src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Bold.woff2") format("woff2"),
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+@font-face
+  font-family: "Victor Mono";
+  src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-BoldItalic.woff2") format("woff2"),
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+
 $color-accent = $accentColor
 $back-container-background = #fcfcfc
 $front-container-background = white
-$default-font-list = "Lora", "source-han-serif-tc", serif
-$mono-font-list = "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro", monospace
+$default-font-list = Lora, "Noto Serif SC", serif
+$mono-font-list = "Victor Mono", Monaco, Menlo, "Source Code Pro", monospace
 $sans-preferred-font-list = "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", "Arial", $default-font-list
 //$default-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif;
 //$sans-preferred-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif;
@@ -105,7 +130,7 @@ pre
     font-family: $mono-font-list !important
   code
     padding: 0
-    font-size: 14px
+    font-size: 15px
     line-height: 1.5em
 blockquote
   padding: 10px 20px
@@ -708,3 +733,25 @@ a
   width: 1em;
   height: 1em;
   margin-bottom: 0.2em;
+
+table
+	margin: 1.3em auto;
+table th,
+table td
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+table th
+	font-weight: bold
+table thead th
+	vertical-align: bottom
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td
+	border-top: 0
+table tbody+tbody
+	border-top: 2px solid #ddd
