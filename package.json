@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-journal",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Journal theme ported from Hexo",
   "main": "index.js",
   "files": [
