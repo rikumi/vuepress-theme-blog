@@ -1,27 +1,27 @@
 @font-face
-  font-family: "Victor Mono";
+  font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Regular.woff2") format("woff2"),
-       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Regular.woff") format("woff")
+  font-weight: 400
+  font-style: normal
 @font-face
-  font-family: "Victor Mono";
+  font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Italic.woff2") format("woff2"),
-       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Italic.woff") format("woff")
+  font-weight: 400
+  font-style: italic
 @font-face
-  font-family: "Victor Mono";
+  font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Bold.woff2") format("woff2"),
-       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Bold.woff") format("woff")
+  font-weight: 700
+  font-style: normal
 @font-face
-  font-family: "Victor Mono";
+  font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-BoldItalic.woff2") format("woff2"),
-       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-BoldItalic.woff") format("woff");
-  font-weight: 700;
-  font-style: italic;
+       url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-BoldItalic.woff") format("woff")
+  font-weight: 700
+  font-style: italic
 
 $color-accent = $accentColor
 $back-container-background = #fcfcfc
@@ -29,10 +29,10 @@ $front-container-background = white
 $default-font-list = "Lora", "Noto Serif SC", "STSongti-SC-Regular", serif
 $mono-font-list = "Victor Mono", Monaco, Menlo, "Source Code Pro", monospace
 $sans-preferred-font-list = "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", "Arial", $default-font-list
-//$default-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif;
-//$sans-preferred-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif;
+//$default-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif
+//$sans-preferred-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif
 $side-container-width = 25%
-//280px;
+//280px
 $extra-container-width = 64px
 $stream-container-max-width = 1480px
 $nav-title-size = 30px
@@ -382,7 +382,7 @@ a
     flex-direction: column
     user-select: none
     > :not(:last-child)
-      // border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+      // border-bottom: 1px solid rgba(128, 128, 128, 0.12)
     .pagination-indicator
       display: flex
       flex-direction: column
@@ -410,7 +410,7 @@ a
         font-size: 13px
         font-family: $mono-font-list
       .pagination-action-icon
-        // margin-right: 4px;
+        // margin-right: 4px
       *
         transition: all 0.3s linear
       &:hover
@@ -537,13 +537,13 @@ a
         .post-item
           border-bottom: 1px solid rgba(128, 128, 128, 0.12)
           @media screen and (max-width: $single-column-max-width)
-            //border-bottom: none !important;
+            //border-bottom: none !important
   .post-list-container-no-background
     @media screen and (max-width: $single-column-max-width)
       background: none
   .post-list-container-shadow
     @media screen and (max-width: $single-column-max-width)
-      // box-shadow: 0 -6px 8px -4px rgba(0, 0, 0, 0.1);
+      // box-shadow: 0 -6px 8px -4px rgba(0, 0, 0, 0.1)
       box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1)
   .post-list-footer
     text-align: center
@@ -628,6 +628,7 @@ a
         font-size: $post-body-size
         text-align: justify
         line-height: 1.5em
+        overflow: hidden
         *
           word-wrap: break-word
         img, iframe
@@ -711,7 +712,7 @@ a
           font-size: 13px
           font-family: $mono-font-list
         .pagination-action-icon
-          // margin-right: 4px;
+          // margin-right: 4px
         *
           transition: all 0.3s linear
         &:hover
@@ -727,28 +728,29 @@ a
       font-family: $sans-preferred-font-list
       padding: 40px 20px 40px 20px
 .emoji
-  width: 1em;
-  height: 1em;
-  margin-bottom: 0.2em;
+  width: 1em
+  height: 1em
+  margin-bottom: 0.2em
 
 table
-	margin: 1.3em auto;
+  margin: 1.3em auto
 table th,
 table td
-	padding: 8px;
-	line-height: 1.333333rem;
-	vertical-align: top;
-	border-top: 1px solid #ddd
+  padding: 8px
+  line-height: 1.333333rem
+  vertical-align: top
+  border-top: 1px solid #ddd
+  text-align: left
 table th
-	font-weight: bold
+  font-weight: bold
 table thead th
-	vertical-align: bottom
+  vertical-align: bottom
 table caption+thead tr:first-child th,
 table caption+thead tr:first-child td,
 table colgroup+thead tr:first-child th,
 table colgroup+thead tr:first-child td,
 table thead:first-child tr:first-child th,
 table thead:first-child tr:first-child td
-	border-top: 0
+  border-top: 0
 table tbody+tbody
-	border-top: 2px solid #ddd
+  border-top: 2px solid #ddd
