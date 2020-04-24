@@ -771,8 +771,8 @@ table tbody+tbody
     background: #000000
 
   // memo:
-  // 1. filter should not wrap any fixed elements as Chrome may change the positioning parent
-  // 2. multiple elements with filter applied may have broken z-indices, and fall back onto DOM-order instead
+  // 1. filter should not wrap any fixed elements as Chrome may change the positioning parent;
+  // 2. multiple elements with filter applied may have broken z-indices, and fall back onto DOM-order instead;
   // 3. in single-column (i.e. mobile) mode, the header should be placed before the content;
   //    so if both the header and the content container are filter-applied, the drawer has no choice but to be covered by the content;
   //    so in single-column mode, filter should only be applied to the whole container;
