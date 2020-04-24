@@ -46,7 +46,7 @@ $post-meta-size = 16px
 $tag-category-title-size = 22px
 $toc-size = 16px
 $dark-accent = darken($color-accent, 10%)
-$deep-dark-accent = darken($color-accent, 50%)
+$deep-dark-accent = darken($color-accent, 70%)
 $color-text = $deep-dark-accent
 if lightness($color-accent) < 10%
   $dark-accent = $color-accent
@@ -80,8 +80,9 @@ code[class*=language-] ::selection,
 pre[class*=language-]::selection,
 pre[class*=language-] ::selection
   background: rgba($color-accent, 0.07)
-body
+html
   background: $back-container-background
+body
   padding: 0
   margin: 0
   font-family: $default-font-list
@@ -674,6 +675,12 @@ a
       iframe
         // Yay a dirty hack
         overflow: hidden !important
+        // Use dark mode as default
+        background: #101010
+        padding: 15px 20px
+        margin: 0 -20px
+        box-sizing: content-box
+        border-radius: 5px
       padding: 20px 35px
       @media screen and (max-width: $single-column-max-width)
         padding: 20px 20px
@@ -754,3 +761,12 @@ table thead:first-child tr:first-child td
   border-top: 0
 table tbody+tbody
   border-top: 2px solid #ddd
+
+@media (prefers-color-scheme: dark)
+  .stream-container .post-list-container
+    background: #f0f0f0
+    
+  html, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
+    filter: invert() hue-rotate(180deg)
+  *
+    box-shadow: none !important
