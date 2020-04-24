@@ -1,6 +1,5 @@
 <template>
   <div id="global-layout">
-    <Sidebar/>
     <MobileHeader :isOpen="isMobileHeaderOpen" @toggle-sidebar="isMobileHeaderOpen = !isMobileHeaderOpen"/>
     <div class="stream-container" @click="isMobileHeaderOpen = false">
       <BaseListLayout v-if="pagination"/>
@@ -30,6 +29,7 @@
         </div>
       </div>
     </div>
+    <Sidebar/>
     <div class="extra-container">
       <Pagination :pagination="pagination"/>
     </div>

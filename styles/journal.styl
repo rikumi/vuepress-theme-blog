@@ -253,16 +253,16 @@ a
     display: block !important
     position: fixed
     top: 0
-    left: -1*$single-column-drawer-width
-    width: $single-column-drawer-width
-    height: 100vh
+    left: 0
+    right: 0
+    transform: translateY(-100%)
     z-index: 1800
     transition: all 0.3s ease-in-out
     .drawer-content
       background: white
       height: 100%
       width: 100%
-      padding: 50px 0 80px 0
+      padding: 20px 0
       display: flex
       .drawer-menu
         flex-grow: 1
@@ -298,7 +298,7 @@ a
     z-index: 1600
     transition: all 0.3s ease-in-out
 .single-column-drawer-container-active
-  left: 0
+  transform: translateY(0)
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2)
 .side-container
   position: fixed
@@ -770,7 +770,14 @@ table tbody+tbody
   html, body
     background: #000000
 
-  // filter should not wrap any fixed elements as Chrome may change the positioning parent
+  // memo:
+  // 1. filter should not wrap any fixed elements as Chrome may change the positioning parent
+  // 2. multiple elements with filter applied may have broken z-indices, and fall back onto DOM-order instead
+  // 3. in single-column (i.e. mobile) mode, the header should be placed before the content;
+  //    so if both the header and the content container are filter-applied, the drawer has no choice but to be covered by the content;
+  //    so in single-column mode, filter should only be applied to the whole container;
+  //    so the fixed behavior is sacrificed for the header to appear over the content;
+  //    so the header is instead placed at the top to match the non-fixed behavior.
   #global-layout > *, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
     filter: invert() hue-rotate(180deg)
 
@@ -778,6 +785,12 @@ table tbody+tbody
     background: #f0f0f0
 
     @media screen and (max-width: $single-column-max-width)
+      #global-layout > *
+        filter: none
+      
+      #global-layout
+        filter: invert() hue-rotate(180deg)
+
       background: unset
 
       .post, .post-item
