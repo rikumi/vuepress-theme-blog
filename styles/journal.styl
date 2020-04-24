@@ -762,15 +762,26 @@ table thead:first-child tr:first-child td
 table tbody+tbody
   border-top: 2px solid #ddd
 
+.stream-container .pagination
+  margin: 0
+  padding: 20px 0
+
 @media (prefers-color-scheme: dark)
   html, body
     background: #000000
 
-  #app, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
+  // filter should not wrap any fixed elements as Chrome may change the positioning parent
+  #global-layout > *, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
     filter: invert() hue-rotate(180deg)
 
   .stream-container .post-list-container
     background: #f0f0f0
+
+    @media screen and (max-width: $single-column-max-width)
+      background: unset
+
+      .post, .post-item
+        background: #f0f0f0 !important
 
   *
     box-shadow: none !important
