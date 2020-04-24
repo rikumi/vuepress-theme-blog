@@ -763,10 +763,14 @@ table tbody+tbody
   border-top: 2px solid #ddd
 
 @media (prefers-color-scheme: dark)
+  html, body
+    background: #000000
+
+  #app, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
+    filter: invert() hue-rotate(180deg)
+
   .stream-container .post-list-container
     background: #f0f0f0
-    
-  html, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
-    filter: invert() hue-rotate(180deg)
+
   *
     box-shadow: none !important
