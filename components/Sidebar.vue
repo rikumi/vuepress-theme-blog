@@ -1,7 +1,7 @@
 <template>
   <section class="side-container">
     <header>
-      <NavLink link="/" class="a-block nav-head" :class="{ active: $route.path === '/' }">
+      <NavLink link="/" class="a-block nav-head" :class="{ active: !$themeConfig.nav.find(k => $route.path === k.link) }">
         <div class="nav-title">{{ $site.title }}</div>
         <div class="nav-subtitle">{{ $site.description }}</div>
       </NavLink>
