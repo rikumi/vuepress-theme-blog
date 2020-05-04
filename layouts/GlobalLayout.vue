@@ -87,7 +87,7 @@
 
 <style>
 @import "https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css";
-@import "https://fonts.googleapis.com/css?family=Lora|Montserrat|Material+Icons|Noto+Serif+SC:400,600&display=swap";
+@import "https://fonts.googleapis.com/css?family=Barlow|Montserrat|Material+Icons|Noto+Sans+HK:400,600&display=swap";
 </style>
 
 <style lang="stylus">
