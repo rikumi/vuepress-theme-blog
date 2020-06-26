@@ -2,193 +2,253 @@
   font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Regular.woff2") format("woff2"),
        url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Regular.woff") format("woff")
+
   font-weight: 400
   font-style: normal
+
 @font-face
   font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Italic.woff2") format("woff2"),
        url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Italic.woff") format("woff")
+
   font-weight: 400
   font-style: italic
+
 @font-face
   font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-Bold.woff2") format("woff2"),
        url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-Bold.woff") format("woff")
+
   font-weight: 700
   font-style: normal
+
 @font-face
   font-family: "Victor Mono"
   src: url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff2/VictorMono-BoldItalic.woff2") format("woff2"),
        url("https://raw.githubusercontent.com/rubjo/victor-mono/master/dist/woff/VictorMono-BoldItalic.woff") format("woff")
+
   font-weight: 700
   font-style: italic
 
-$color-accent = $accentColor
-$back-container-background = #fcfcfc
-$front-container-background = white
-$default-font-list = "Barlow", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif
-$mono-font-list = "Victor Mono", Monaco, Menlo, "Source Code Pro", monospace
-$sans-preferred-font-list = "Barlow", "Roboto", "Source Sans Pro", "Helvetica", "Arial", $default-font-list
-//$default-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif
-//$sans-preferred-font-list: "Cousine", Monaco, Menlo, "Source Code Pro", sans-serif
-$side-container-width = 25%
-//280px
-$extra-container-width = 64px
-$stream-container-max-width = 1480px
-$nav-title-size = 30px
-$nav-subtitle-size = 18px
-$nav-link-size = 20px
-$nav-footer-size = 12px
-$post-title-size = 30px
-$post-summary-size = 16px
-$post-body-size = 16px
-$post-meta-size = 16px
-$tag-category-title-size = 22px
-$toc-size = 16px
-$dark-accent = darken($color-accent, 10%)
-$deep-dark-accent = darken($color-accent, 70%)
-$color-text = $deep-dark-accent
-if lightness($color-accent) < 10%
-  $dark-accent = $color-accent
-  $deep-dark-accent = $color-accent
-  $color-text = $deep-dark-accent
-$single-column-max-width = 800px
-$single-column-drawer-width = 260px
-$single-column-nav-title-size = 28px
-$single-column-nav-subtitle-size = 20px
-$single-column-nav-link-size = 18px
-$single-column-nav-footer-size = 13px
-$single-column-post-title-size = 22px
-$single-column-post-summary-size = 16px
-$single-column-post-body-size = 16px
-$single-column-post-meta-size = 14px
-$single-column-tag-category-title-size = 14px
-$single-column-toc-size = 14px
-$h1 = 30px
-$h-diff = 3px
+$accentColorDark = lighten(saturate($accentColor, -60%), 70%)
+
+:root
+  --color-accent: $accentColor
+  --color-accent-transparent-10: rgba($accentColor, 0.10)
+  --color-accent-transparent-70: rgba($accentColor, 0.70)
+  --color-accent-darken-10: darken($accentColor, 10%)
+  --color-accent-darken-20: darken($accentColor, 20%)
+  --color-accent-darken-30: darken($accentColor, 30%)
+  --color-accent-darken-70: darken($accentColor, 70%)
+  --dark-accent: var(--color-accent-darken-10)
+  --color-text: var(--color-accent-darken-70)
+  --back-container-background: #fcfcfc
+  --front-container-background: #ffffff
+
+  @media (prefers-color-scheme: dark)
+    --color-accent: $accentColorDark
+    --color-accent-transparent-10: rgba($accentColorDark, 0.10)
+    --color-accent-transparent-70: rgba($accentColorDark, 0.70)
+    --color-accent-darken-10: lighten($accentColorDark, 10%)
+    --color-accent-darken-20: lighten($accentColorDark, 20%)
+    --color-accent-darken-30: lighten($accentColorDark, 30%)
+    --color-accent-darken-70: lighten($accentColorDark, 70%)
+    --dark-accent: var(--color-accent-darken-10)
+    --color-text: var(--color-accent-darken-70)
+    --back-container-background: #000000
+    --front-container-background: #181818
+
+  --default-font-list: "Barlow", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif
+  --mono-font-list: "Victor Mono", Monaco, Menlo, "Source Code Pro", monospace
+  --sans-preferred-font-list: "Barlow", "Roboto", "Source Sans Pro", "Helvetica", "Arial", var(--default-font-list)
+  --side-container-width: 25%
+  --extra-container-width: 64px
+  --stream-container-max-width: 1480px
+  --nav-title-size: 30px
+  --nav-subtitle-size: 18px
+  --nav-link-size: 20px
+  --nav-footer-size: 12px
+  --post-title-size: 30px
+  --post-summary-size: 16px
+  --post-body-size: 16px
+  --post-meta-size: 16px
+  --tag-category-title-size: 22px
+  --toc-size: 16px
+  --single-column-drawer-width: 260px
+  --single-column-nav-title-size: 28px
+  --single-column-nav-subtitle-size: 20px
+  --single-column-nav-link-size: 18px
+  --single-column-nav-footer-size: 13px
+  --single-column-post-title-size: 22px
+  --single-column-post-summary-size: 16px
+  --single-column-post-body-size: 16px
+  --single-column-post-meta-size: 14px
+  --single-column-tag-category-title-size: 14px
+  --single-column-toc-size: 14px
+  --h1: 30px
+  --h2: 27px
+  --h3: 24px
+  --h4: 21px
+  --h5: 18px
+  --h6: 15px
+
 ::-webkit-scrollbar
   display: none
+
 ::selection
-  background: rgba($color-accent, 0.07)
+  background: var(--color-accent-transparent-10)
+
 code[class*=language-]::-moz-selection,
 code[class*=language-] ::-moz-selection,
 pre[class*=language-]::-moz-selection,
 pre[class*=language-] ::-moz-selection
-  background: rgba($color-accent, 0.07)
+  background: var(--color-accent-transparent-10)
+
 code[class*=language-]::selection,
 code[class*=language-] ::selection,
 pre[class*=language-]::selection,
 pre[class*=language-] ::selection
-  background: rgba($color-accent, 0.07)
-html
-  background: $back-container-background
+  background: var(--color-accent-transparent-10)
+
+html, body
+  background: var(--back-container-background)
+
 body
   padding: 0
   margin: 0
-  font-family: $default-font-list
+  font-family: var(--default-font-list)
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004)
   text-rendering: optimizeLegibility !important
   -webkit-font-smoothing: antialiased !important
-  color: $color-text
+  color: var(--color-text)
+
 *
-  color: $deep-dark-accent
+  color: var(--color-accent-darken-70)
   line-height: 1.75em
   word-wrap: break-word
+
 h1
-  font-size: $h1
+  font-size: var(--h1)
+
 h2
-  font-size: ($h1 - 1 * $h-diff)
+  font-size: var(--h2)
+
 h3
-  font-size: ($h1 - 2 * $h-diff)
+  font-size: var(--h3)
+
 h4
-  font-size: ($h1 - 3 * $h-diff)
+  font-size: var(--h4)
+
 h5
-  font-size: ($h1 - 4 * $h-diff)
+  font-size: var(--h5)
+
 h6
-  font-size: ($h1 - 5 * $h-diff)
+  font-size: var(--h6)
+
 textarea,
 select,
 input,
 button
   outline: none !important
+
 button
   cursor: hand
   cursor: pointer
+
 code
-  color: $dark-accent
-  background: rgba($color-accent, 0.07) !important
+  color: var(--dark-accent)
+  background: var(--color-accent-transparent-10) !important
   padding: 2px 5px
   border-radius: 3px
-  font-family: $mono-font-list
+  font-family: var(--mono-font-list)
+
 pre
-  background: rgba($color-accent, 0.07) !important
-  color: $dark-accent
+  background: var(--color-accent-transparent-10) !important
+  color: var(--dark-accent)
   padding: 12px 15px
   border-radius: 5px
-  font-family: $mono-font-list
+  font-family: var(--mono-font-list)
   *
     background: none !important
-    font-family: $mono-font-list !important
+    font-family: var(--mono-font-list) !important
+
   code
     padding: 0
     font-size: 15px
     line-height: 1.5em
+
 blockquote
   padding: 10px 20px
-  border-left: 3px solid rgba($color-accent, 0.7)
-  color: $dark-accent
-  background: rgba($color-accent, 0.05)
+  border-left: 3px solid var(--color-accent-transparent-70)
+  color: var(--dark-accent)
+  background: var(--color-accent-transparent-10)
   p
     margin-bottom: 0
+
   *
-    color: $dark-accent
+    color: var(--dark-accent)
+
 ul
   padding: 0
+
 a
-  color: $color-accent
+  color: var(--color-accent)
   &:hover
-    color: darken($color-accent, 10%)
+    color: var(--color-accent-darken-10)
     text-underline-position: under
-  @media screen and (max-width: $single-column-max-width)
+
+  @media screen and (max-width: 800px)
     &:hover
       text-decoration: none !important
+
 .a-block
   display: block
   text-decoration: none !important
   &:hover
     text-decoration: none !important
+
 .no-margin
   margin: 0
+
 .no-padding
   padding: 0
+
 .no-overflow
   overflow: hidden !important
+
 .animated-visibility
   visibility: visible
   opacity: 1
+
 .invisible
   visibility: hidden
   opacity: 0
+
 // dirty hack for livere
 #lv-container
   padding: 0 30px
-  @media screen and (max-width: $single-column-max-width)
+  @media screen and (max-width: 800px)
     padding: 0 15px
+
 .single-column-nav-container
   display: none !important
-  @media screen and (max-width: $single-column-max-width)
+  @media screen and (max-width: 800px)
     display: block !important
     padding: 0
     button
       padding: 0
+
     .nav-content
       padding: 12px 20px
       justify-content: flex-start
       max-width: unset !important
+
     .navbar-brand
-      font-family: $sans-preferred-font-list
+      color: var(--color-text) !important
+      font-family: var(--sans-preferred-font-list)
       text-align: left
       padding-left: 24px !important
+
     .nav-dropdown-toggle
       display: flex
       align-content: center
@@ -198,8 +258,7 @@ a
       background: none !important
       border: none
       padding-top: 1px
-      &:hover
-        color: #3f587d !important
+
     .nav-icon-group
       z-index: 5
       padding-right: 5px
@@ -207,12 +266,15 @@ a
         list-style: none
         margin: 0
         padding: 0
+
       li
         display: inline
         margin: 0
         padding: 0
+
     .nav-icon
       padding: 8px
+
     .nav-background
       opacity: 0
       z-index: -1
@@ -220,27 +282,31 @@ a
       position: absolute
       width: 100%
       height: 100%
-      background: white
+      background: var(--back-container-background)
       -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
       -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)
+
 .single-column-header-container
   display: none !important
-  @media screen and (max-width: $single-column-max-width)
+  @media screen and (max-width: 800px)
     display: block !important
     padding: 50px 20px 80px 20px
     transition: padding 0.5s ease-in-out, margin 0.5s ease-in-out
     text-align: center
     *
-      font-family: $sans-preferred-font-list
-      color: $deep-dark-accent
+      font-family: var(--sans-preferred-font-list)
+      color: var(--color-accent-darken-70)
+
     .single-column-header-title
-      font-size: $single-column-nav-title-size
+      font-size: var(--single-column-nav-title-size)
+
     .single-column-header-subtitle
-      font-size: $single-column-nav-subtitle-size
+      font-size: var(--single-column-nav-subtitle-size)
+
 .single-column-drawer-container
   display: none !important
-  @media screen and (max-width: $single-column-max-width)
+  @media screen and (max-width: 800px)
     display: block !important
     position: fixed
     top: 0
@@ -250,7 +316,7 @@ a
     z-index: 1800
     transition: all 0.3s ease-in-out
     .drawer-content
-      background: white
+      background: var(--back-container-background)
       height: 100%
       width: 100%
       padding: 20px 0
@@ -261,23 +327,22 @@ a
         justify-items: center
         justify-content: center
         flex-direction: column
-        $drawer-menu-item-active-background-alpha = 0.1
-        $drawer-menu-item-active-color-darken = 30%
         .drawer-menu-item
-          font-size: $single-column-nav-link-size
+          font-size: var(--single-column-nav-link-size)
           margin-bottom: 10px
           border-right: 2px solid transparent
           padding: 8px 30px 8px 30px
           cursor: hand
           cursor: pointer
-          color: $deep-dark-accent
+          color: var(--color-accent-darken-70)
           &.active
-            border-right: 2px solid $color-accent
-            background: rgba($color-accent, $drawer-menu-item-active-background-alpha)
-            color: darken($color-accent, $drawer-menu-item-active-color-darken)
+            border-right: 2px solid var(--color-accent)
+            background: var(--color-accent-transparent-10)
+            color: var(--color-accent-darken-30)
+
 .single-column-drawer-mask
   display: none !important
-  @media screen and (max-width: $single-column-max-width)
+  @media screen and (max-width: 800px)
     display: block !important
     position: fixed
     top: 0
@@ -286,79 +351,84 @@ a
     left: 0
     background: rgba(0, 0, 0, 0.8)
     z-index: 1600
+
 .single-column-drawer-container-active
   transform: translateY(0)
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2)
+
 .side-container
   position: fixed
   top: 0
   height: 100vh
-  width: $side-container-width
+  width: var(--side-container-width)
   text-align: right
-  font-family: $sans-preferred-font-list
+  font-family: var(--sans-preferred-font-list)
   padding: 20px 0 50px 0
   overflow-x: hidden
   overflow-y: hidden
   display: flex
   flex-direction: column
   justify-content: space-between
-  $nav-item-hover-background-alpha = 0.02
-  $nav-item-hover-indicator-alpha = 0.6
-  $nav-item-hover-color-darken = 30%
-  $nav-item-active-background-alpha = 0.03
-  $nav-item-active-color-darken = 20%
   .nav-head
     padding: 30px 28px 30px 20px
     cursor: hand
     cursor: pointer
     margin-bottom: 10px
-    color: $deep-dark-accent
+    color: var(--color-accent-darken-70)
     .nav-title
-      font-size: $nav-title-size
-      line-height: ($nav-title-size * 1.4)
+      font-size: var(--nav-title-size)
+      line-height: calc(var(--nav-title-size) * 1.4)
+
     border-right: 2px solid transparent
     .nav-subtitle
       margin-top: 8px
-      font-size: $nav-subtitle-size
+      font-size: var(--nav-subtitle-size)
+
     &:hover
-      border-right: 2px solid rgba($color-accent, $nav-item-hover-indicator-alpha)
-      background: rgba($color-accent, $nav-item-hover-background-alpha)
-      color: darken($color-accent, $nav-item-hover-color-darken)
+      border-right: 2px solid var(--color-accent-transparent-70)
+      background: var(--color-accent-transparent-10)
+      color: var(--color-accent-darken-30)
+
     &.active
-      border-right: 2px solid $color-accent
-      background: rgba($color-accent, $nav-item-active-background-alpha)
-      color: darken($color-accent, $nav-item-active-color-darken)
+      border-right: 2px solid var(--color-accent)
+      background: var(--color-accent-transparent-10)
+      color: var(--color-accent-darken-20)
+
   .nav-link-list
     flex-grow: 1
     .nav-link-item
-      font-size: $nav-link-size
+      font-size: var(--nav-link-size)
       margin-bottom: 10px
       border-right: 2px solid transparent
       padding: 8px 28px 8px 30px
       cursor: hand
       cursor: pointer
-      color: $deep-dark-accent
+      color: var(--color-accent-darken-70)
       &:hover
-        border-right: 2px solid rgba($color-accent, $nav-item-hover-indicator-alpha)
-        background: rgba($color-accent, $nav-item-hover-background-alpha)
-        color: darken($color-accent, $nav-item-hover-color-darken)
+        border-right: 2px solid var(--color-accent-transparent-70)
+        background: var(--color-accent-transparent-10)
+        color: var(--color-accent-darken-30)
+
       &.active
-        border-right: 2px solid $color-accent
-        background: rgba($color-accent, $nav-item-active-background-alpha)
-        color: darken($color-accent, $nav-item-active-color-darken)
+        border-right: 2px solid var(--color-accent)
+        background: var(--color-accent-transparent-10)
+        color: var(--color-accent-darken-20)
+
   .nav-footer
     padding: 20px 30px 0 20px
-    font-size: $nav-footer-size
-  @media screen and (max-width: $single-column-max-width)
+    font-size: var(--nav-footer-size)
+
+  @media screen and (max-width: 800px)
     display: none
+
 .extra-container
   position: fixed
   top: 0
   right: 0
   height: 100vh
-  width: $extra-container-width
+  width: var(--extra-container-width)
   text-align: right
-  font-family: $sans-preferred-font-list
+  font-family: var(--sans-preferred-font-list)
   overflow-x: hidden
   overflow-y: hidden
   display: flex
@@ -369,8 +439,7 @@ a
     display: flex
     flex-direction: column
     user-select: none
-    > :not(:last-child)
-      // border-bottom: 1px solid rgba(128, 128, 128, 0.12)
+
     .pagination-indicator
       display: flex
       flex-direction: column
@@ -378,10 +447,11 @@ a
       justify-content: center
       align-items: center
       justify-items: center
-      width: $extra-container-width
+      width: var(--extra-container-width)
       padding: 15px 0
       font-size: 12px
-      font-family: $mono-font-list
+      font-family: var(--mono-font-list)
+
     .pagination-action
       display: flex
       flex-direction: column
@@ -389,52 +459,56 @@ a
       justify-content: center
       align-items: center
       justify-items: center
-      width: $extra-container-width
+      width: var(--extra-container-width)
       cursor: hand
       cursor: pointer
       padding: 15px 0
       :not(.pagination-action-icon)
         font-size: 13px
-        font-family: $mono-font-list
-      .pagination-action-icon
-        // margin-right: 4px
+        font-family: var(--mono-font-list)
+
       &:hover
         text-decoration: none
         *
-          color: $dark-accent
-  @media screen and (max-width: $single-column-max-width)
+          color: var(--dark-accent)
+
+  @media screen and (max-width: 800px)
     display: none
+
 .pagination-bar-container
   position: fixed
   top: 0
   right: 0
   height: 100vh
-  width: $side-container-width
+  width: var(--side-container-width)
   text-align: right
-  font-family: $sans-preferred-font-list
+  font-family: var(--sans-preferred-font-list)
   padding: 20px 0
   overflow: scroll
   display: flex
   flex-direction: column
+
 .stream-container
-  padding-left: $side-container-width
-  padding-right: $extra-container-width
+  padding-left: var(--side-container-width)
+  padding-right: var(--extra-container-width)
   width: 100%
   min-height: 100vh
-  max-width: $stream-container-max-width
-  @media screen and (max-width: $single-column-max-width)
+  max-width: var(--stream-container-max-width)
+  @media screen and (max-width: 800px)
     padding: 0
     min-height: unset
+
   .post-list-container
     width: 100%
     min-height: 100vh
     padding: 20px 0 20px 0
-    background: $front-container-background
+    background: var(--front-container-background)
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.12)
-    @media screen and (max-width: $single-column-max-width)
+    @media screen and (max-width: 800px)
       min-height: unset
       padding: 0
       box-shadow: 0 0 0 rgba(0, 0, 0, 0.2)
+
     &,
     > *
       .post-item-wrapper
@@ -446,47 +520,54 @@ a
           display: flex
           flex-direction: row
           align-items: center
-          @media screen and (max-width: $single-column-max-width)
+          @media screen and (max-width: 800px)
             flex-direction: column-reverse
             margin: 0 0 15px 0
             padding: 0
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
-            background: $front-container-background
+            background: var(--front-container-background)
+
           .post-item-info-wrapper
             flex-grow: 1
-            @media screen and (max-width: $single-column-max-width)
+            @media screen and (max-width: 800px)
               width: 100%
               padding: 15px 20px
+
             .post-item-title
-              font-size: $post-title-size
+              font-size: var(--post-title-size)
               font-weight: 600
               font-style: normal
               margin-bottom: 10px
               line-height: 1.5em
-              @media screen and (max-width: $single-column-max-width)
-                font-size: $single-column-post-title-size
+              @media screen and (max-width: 800px)
+                font-size: var(--single-column-post-title-size)
                 margin-bottom: 5px
+
             .post-item-title-small
-              font-size: $tag-category-title-size
+              font-size: var(--tag-category-title-size)
               margin-bottom: 0
-              @media screen and (max-width: $single-column-max-width)
-                font-size: $single-column-tag-category-title-size
+              @media screen and (max-width: 800px)
+                font-size: var(--single-column-tag-category-title-size)
+
             .post-item-summary
-              font-size: $post-summary-size
+              font-size: var(--post-summary-size)
               line-height: 1.5em
               margin-bottom: 10px
-              @media screen and (max-width: $single-column-max-width)
-                font-size: $single-column-post-summary-size
+              @media screen and (max-width: 800px)
+                font-size: var(--single-column-post-summary-size)
                 margin-bottom: 5px
+
             .post-item-meta
-              font-size: $post-meta-size
-              @media screen and (max-width: $single-column-max-width)
-                font-size: $single-column-post-meta-size
+              font-size: var(--post-meta-size)
+              @media screen and (max-width: 800px)
+                font-size: var(--single-column-post-meta-size)
+
           .post-item-image-wrapper
             margin-left: 20px
-            @media screen and (max-width: $single-column-max-width)
+            @media screen and (max-width: 800px)
               width: 100%
               margin-left: 0
+
             .post-item-image
               width: 230px
               height: 120px
@@ -494,50 +575,58 @@ a
               background-size: cover
               border-radius: 5px
               overflow: hidden
-              @media screen and (max-width: $single-column-max-width)
+              @media screen and (max-width: 800px)
                 width: 100%
                 height: 180px
                 border-radius: 0
-        @media screen and (max-width: $single-column-max-width)
+
+        @media screen and (max-width: 800px)
           .post-item-no-divider
             border-bottom: none !important
+
           .post-item-no-gaps
             margin: 0
             box-shadow: none
+
         &:not(.post-item-wrapper-no-hover):hover
           text-decoration: none
           background: rgba(0, 0, 0, 0.03)
           .post-item-title
             text-decoration: underline
-            text-decoration-style: 2px solid $color-accent
+            text-decoration-style: 2px solid var(--color-accent)
             text-underline-position: under
+
           *
-            color: $dark-accent
-          @media screen and (max-width: $single-column-max-width)
+            color: var(--dark-accent)
+
+          @media screen and (max-width: 800px)
             .post-item-title
               text-decoration: none !important
+
       .post-item-wrapper-no-hover
         cursor: unset
+
       &:not(:last-child)
         .post-item
           border-bottom: 1px solid rgba(128, 128, 128, 0.12)
-          @media screen and (max-width: $single-column-max-width)
-            //border-bottom: none !important
+
   .post-list-container-no-background
-    @media screen and (max-width: $single-column-max-width)
+    @media screen and (max-width: 800px)
       background: none
+
   .post-list-container-shadow
-    @media screen and (max-width: $single-column-max-width)
-      // box-shadow: 0 -6px 8px -4px rgba(0, 0, 0, 0.1)
+    @media screen and (max-width: 800px)
       box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1)
+
   .post-list-footer
     text-align: center
     width: 100%
     opacity: 0.3
-    color: $deep-dark-accent
-    font-family: $default-font-list
+    color: var(--color-accent-darken-70)
+    font-family: var(--default-font-list)
     font-size: 13px
     padding: 15px
+
   .post
     padding: 0 0 20px 0
     .post-head-wrapper
@@ -546,14 +635,16 @@ a
       background-size: cover
       position: relative
       padding-top: 140px
-      @media screen and (max-width: $single-column-max-width)
+      @media screen and (max-width: 800px)
         margin-top: 0
         padding-top: 120px
+
       *
         color: white
+
       .post-title
         padding: 80px 35px 30px 35px
-        font-size: $post-title-size
+        font-size: var(--post-title-size)
         font-weight: 600
         font-style: normal
         line-height: 1.5em
@@ -563,29 +654,35 @@ a
         /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%)
         /* IE6-9 */
-        @media screen and (max-width: $single-column-max-width)
-          font-size: $single-column-post-title-size
+        @media screen and (max-width: 800px)
+          font-size: var(--single-column-post-title-size)
           padding: 80px 20px 30px 20px
+
         .post-meta
           margin: 0
           &,
           *
             font-size: 16px
+
           .material-icons
             vertical-align: middle
             margin-bottom: 3px
+
           .post-meta-tag + .post-meta-tag::before
             content: ', '
-          @media screen and (max-width: $single-column-max-width)
+
+          @media screen and (max-width: 800px)
             &,
             *
-              font-size: $single-column-post-meta-size
+              font-size: var(--single-column-post-meta-size)
+
     .post-head-wrapper-text-only
       padding: 30px 35px 0 35px
-      @media screen and (max-width: $single-column-max-width)
+      @media screen and (max-width: 800px)
         padding: 30px 20px 0 20px
+
       .post-title
-        font-size: $post-title-size
+        font-size: var(--post-title-size)
         font-weight: 600
         font-style: normal
         line-height: 1.5em
@@ -594,52 +691,64 @@ a
           &,
           *
             font-size: 16px
+
           .material-icons
             vertical-align: middle
             margin-bottom: 3px
+
           .post-meta-tag + .post-meta-tag::before
             content: ', '
-          @media screen and (max-width: $single-column-max-width)
+
+          @media screen and (max-width: 800px)
             &,
             *
-              font-size: $single-column-post-meta-size
-        @media screen and (max-width: $single-column-max-width)
-          font-size: $single-column-post-title-size
+              font-size: var(--single-column-post-meta-size)
+
+        @media screen and (max-width: 800px)
+          font-size: var(--single-column-post-title-size)
+
     .post-body-wrapper
       padding: 30px 35px 35px 35px
-      @media screen and (max-width: $single-column-max-width)
+      @media screen and (max-width: 800px)
         padding: 20px 20px 35px 20px
+
       .post-body
-        font-size: $post-body-size
+        font-size: var(--post-body-size)
         text-align: justify
         line-height: 1.5em
         overflow: hidden
         *
           word-wrap: break-word
+
         img, iframe
           max-width: 100%
           border-radius: 5px
           overflow: hidden
-        @media screen and (max-width: $single-column-max-width)
-          font-size: $single-column-post-body-size
+
+        @media screen and (max-width: 800px)
+          font-size: var(--single-column-post-body-size)
+
         .toc
           float: right
           border-radius: 5px
-          background: rgba($color-accent, 0.05)
+          background: var(--color-accent-transparent-10)
           padding: 30px
           margin-left: 30px
           margin-bottom: 30px
           &,
           *
-            font-size: $toc-size
+            font-size: var(--toc-size)
+
           ul
             list-style: decimal
             padding: 0 0 0 20px
             margin: 0
-          @media screen and (max-width: $single-column-max-width)
+
+          @media screen and (max-width: 800px)
             &,
             *
-              font-size: $single-column-toc-size
+              font-size: var(--single-column-toc-size)
+
     .post-pagination
       padding: 20px 35px
       width: 100%
@@ -649,33 +758,34 @@ a
         padding-right: 5px
         text-align: left
         width: 50%
+
       .older-posts
         padding-left: 5px
         text-align: right
         width: 50%
-      @media screen and (max-width: $single-column-max-width)
+
+      @media screen and (max-width: 800px)
         padding: 20px 20px
+
     .post-comment-wrapper
       iframe
-        // Yay a dirty hack
         overflow: hidden !important
-        // Use dark mode as default
-        background: #101010
-        padding: 15px 20px
-        margin: 0 -20px
         box-sizing: content-box
         border-radius: 5px
+
       padding: 20px 35px
-      @media screen and (max-width: $single-column-max-width)
+      @media screen and (max-width: 800px)
         padding: 20px 20px
+
   .pagination
     display: none
-    @media screen and (max-width: $single-column-max-width)
+    @media screen and (max-width: 800px)
       display: flex !important
       flex-direction: row
       justify-content: center
       &:not(.index-page)
         margin-top: 15px
+
       .pagination-indicator
         display: flex
         flex-direction: column
@@ -683,10 +793,11 @@ a
         justify-content: center
         align-items: center
         justify-items: center
-        width: $extra-container-width
+        width: var(--extra-container-width)
         padding: 15px 0
         font-size: 12px
-        font-family: $mono-font-list
+        font-family: var(--mono-font-list)
+
       .pagination-action
         display: flex
         flex-direction: column
@@ -694,27 +805,28 @@ a
         justify-content: center
         align-items: center
         justify-items: center
-        width: $extra-container-width
+        width: var(--extra-container-width)
         cursor: hand
         cursor: pointer
         padding: 15px 0
         :not(.pagination-action-icon)
           font-size: 13px
-          font-family: $mono-font-list
-        .pagination-action-icon
-          // margin-right: 4px
+          font-family: var(--mono-font-list)
+
         &:hover
           text-decoration: none
           *
-            color: $dark-accent
+            color: var(--dark-accent)
+
   .single-column-footer
     display: none
-    @media screen and (max-width: $single-column-max-width)
+    @media screen and (max-width: 800px)
       display: block !important
       text-align: center
-      font-size: $single-column-nav-footer-size
-      font-family: $sans-preferred-font-list
+      font-size: var(--single-column-nav-footer-size)
+      font-family: var(--sans-preferred-font-list)
       padding: 40px 20px 40px 20px
+
 .emoji
   width: 1em
   height: 1em
@@ -722,6 +834,7 @@ a
 
 table
   margin: 1.3em auto
+
 table th,
 table td
   padding: 8px
@@ -729,10 +842,13 @@ table td
   vertical-align: top
   border-top: 1px solid #ddd
   text-align: left
+
 table th
   font-weight: bold
+
 table thead th
   vertical-align: bottom
+
 table caption+thead tr:first-child th,
 table caption+thead tr:first-child td,
 table colgroup+thead tr:first-child th,
@@ -740,42 +856,10 @@ table colgroup+thead tr:first-child td,
 table thead:first-child tr:first-child th,
 table thead:first-child tr:first-child td
   border-top: 0
+
 table tbody+tbody
   border-top: 2px solid #ddd
 
 .stream-container .pagination
   margin: 0
   padding: 20px 0
-
-@media (prefers-color-scheme: dark)
-  html, body
-    background: #000000
-
-  // memo:
-  // 1. filter should not wrap any fixed elements as Chrome may change the positioning parent;
-  // 2. multiple elements with filter applied may have broken z-indices, and fall back onto DOM-order instead;
-  // 3. in single-column (i.e. mobile) mode, the header should be placed before the content;
-  //    so if both the header and the content container are filter-applied, the drawer has no choice but to be covered by the content;
-  //    so in single-column mode, filter should only be applied to the whole container;
-  //    so the fixed behavior is sacrificed for the header to appear over the content;
-  //    so the header is instead placed at the top to match the non-fixed behavior.
-  #global-layout > *, img, .post-item-image, .post-head-wrapper, .single-column-drawer-mask, iframe
-    filter: invert() hue-rotate(180deg)
-
-  .stream-container .post-list-container
-    background: #f0f0f0
-
-    @media screen and (max-width: $single-column-max-width)
-      #global-layout > *
-        filter: none
-      
-      #global-layout
-        filter: invert() hue-rotate(180deg)
-
-      background: unset
-
-      .post, .post-item
-        background: #f0f0f0 !important
-
-  *
-    box-shadow: none !important
