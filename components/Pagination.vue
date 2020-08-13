@@ -31,11 +31,14 @@ export default {
   props: ['pagination'],
   data() {
     return {
-      isDarkMode: !!+(
-        localStorage.getItem('vuepress-theme-journal-dark-mode') ||
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      )
+      isDarkMode: false
     };
+  },
+  mounted() {
+    this.isDarkMode = !!+(
+      localStorage.getItem('vuepress-theme-journal-dark-mode') ||
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
   },
   methods: {
     toggleDarkMode() {
