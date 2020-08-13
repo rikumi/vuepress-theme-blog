@@ -92,7 +92,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     if (
       !!+(
         localStorage.getItem('vuepress-theme-journal-dark-mode') ||
@@ -101,9 +101,7 @@ export default {
     ) {
       document.documentElement.classList.add('dark-mode');
     }
-  },
 
-  mounted() {
     twemoji.parse(document.body);
   }
 };
