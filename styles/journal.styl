@@ -45,7 +45,7 @@ $accentColorDark = lighten(saturate($accentColor, -60%), 70%)
   --back-container-background: #fcfcfc
   --front-container-background: #ffffff
 
-  @media (prefers-color-scheme: dark)
+  &.dark-mode
     --color-accent: $accentColorDark
     --color-accent-transparent-10: rgba($accentColorDark, 0.10)
     --color-accent-transparent-70: rgba($accentColorDark, 0.70)
@@ -58,9 +58,9 @@ $accentColorDark = lighten(saturate($accentColor, -60%), 70%)
     --back-container-background: #000000
     --front-container-background: #181818
 
-  --default-font-list: "Barlow", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif
+  --default-font-list: "Lora", "Noto Serif SC", "STSongti-SC-Regular", serif
   --mono-font-list: "Victor Mono", Monaco, Menlo, "Source Code Pro", monospace
-  --sans-preferred-font-list: "Barlow", "Roboto", "Source Sans Pro", "Helvetica", "Arial", var(--default-font-list)
+  --sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", "Arial", var(--default-font-list)
   --side-container-width: 25%
   --extra-container-width: 64px
   --stream-container-max-width: 1480px
@@ -466,6 +466,9 @@ a
       :not(.pagination-action-icon)
         font-size: 13px
         font-family: var(--mono-font-list)
+      
+      .pagination-action-icon-small
+        font-size: 16px
 
       &:hover
         text-decoration: none

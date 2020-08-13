@@ -1,9 +1,5 @@
 <template>
-  <router-link
-    :to="normalizedlink"
-    v-if="!isExternal(normalizedlink)"
-    :exact="exact"
-  >
+  <router-link :to="normalizedlink" v-if="!isExternal(normalizedlink)" :exact="exact">
     <slot/>
   </router-link>
   <a
@@ -18,7 +14,7 @@
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, ensureExt } from '../components/util'
+import { isExternal, isMailto, isTel, ensureExt } from '../components/util';
 
 export default {
   props: {
@@ -28,15 +24,17 @@ export default {
   },
 
   computed: {
-    normalizedlink () {
-      return ensureExt(this.link)
+    normalizedlink() {
+      return ensureExt(this.link);
     },
 
-    exact () {
+    exact() {
       if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.normalizedlink)
+        return Object.keys(this.$site.locales).some(
+          (rootLink) => rootLink === this.normalizedlink
+        );
       }
-      return this.normalizedlink === '/'
+      return this.normalizedlink === '/';
     }
   },
 
@@ -45,5 +43,5 @@ export default {
     isMailto,
     isTel
   }
-}
+};
 </script>
